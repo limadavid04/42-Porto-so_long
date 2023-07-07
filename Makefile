@@ -3,7 +3,7 @@ CC = cc
 CFLAGS =-Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 NAME = so_long
-FILES = parser
+FILES = parser utils
 
 all: $(NAME)
 

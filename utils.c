@@ -1,23 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/07 15:56:10 by dlima            ###   ########.fr       */
+/*   Created: 2023/07/07 15:54:51 by dlima             #+#    #+#             */
+/*   Updated: 2023/07/07 15:56:29 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include "./libft/libft.h"
-# include <signal.h>
-# include <unistd.h>
-# include <stdio.h>
+void    replace_newlines(char *line)
+{
+    int i;
 
-void    replace_newlines(char *line);
-
-#endif
+    i = 0;
+    while (line[i])
+    {
+        if(line[i] == '\n')
+            line[i] = '\0';
+        i++;
+    }
+}
