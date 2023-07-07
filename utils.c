@@ -6,21 +6,21 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:54:51 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/07 15:56:29 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/07 17:17:06 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void    replace_newlines(char *line)
+void	replace_newlines(char *line)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (line[i])
-    {
-        if(line[i] == '\n')
-            line[i] = '\0';
-        i++;
-    }
+	i = 0;
+	while (line[i])
+	{
+		if (line[i] == '\n')
+			line[i] = '\0';
+		i++;
+	}
 }

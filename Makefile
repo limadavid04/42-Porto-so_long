@@ -3,7 +3,7 @@ CC = cc
 CFLAGS =-Wall -Wextra -Werror
 LIBFT = ./libft/libft.a
 NAME = so_long
-FILES = parser utils
+FILES = check_map_size check_map_path utils
 
 all: $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/07 16:01:39 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/07 16:14:13 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,6 @@ int	check_walls(char **map, int rows)
 	int	m;
 
 	m = ft_strlen(map[0]);
-
 	x = 0;
 	while (map[x])
 	{
@@ -106,8 +105,8 @@ int	check_walls(char **map, int rows)
 		{
 			if ((x == 0 || x == rows - 1 || y == 0 || y == m - 1))
 			{
-				printf("%c\n", map[x][y]);
-				printf("x = %d, y = %d\n ", x, y);
+				// printf("%c\n", map[x][y]);
+				// printf("x = %d, y = %d\n ", x, y);
 				if (map[x][y] != '1')
 					return (0);
 			}
@@ -137,6 +136,3 @@ int	main(int argc, char *argv[])
 	printf("GOOD MAP");
 	return (0);
 }
-	// Prints map;
-
-	//free(map);
