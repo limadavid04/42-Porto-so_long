@@ -1,0 +1,2 @@
+-replace pritf with ft_printf
+-rename struct to map and map to map_matrix
