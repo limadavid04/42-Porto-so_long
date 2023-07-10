@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/10 13:56:52 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/10 17:17:18 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,11 +131,7 @@ int	main(int argc, char *argv[])
 	
 	map_info *map = (map_info*)malloc(sizeof(map_info));
 	map->map_matrix = map_matrix;
-	map->collectibles = 0; 
-	map->exit = 0;
-	map->start = 0;
-	map->free_space = 0;
-	if (!(n >= 5 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_elements(map)))
+	if (!(n >= 5 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
 	{
 		matrix_free(map_matrix);
 		free(map);

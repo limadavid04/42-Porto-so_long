@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:54:51 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/10 13:47:55 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/10 18:57:38 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,29 @@ void	matrix_free(char **matrix)
 	}
 	free(matrix);
 }
+
+void	matrix_copy(char **src, char **dest)
+{
+	int	x;
+
+	x = 0;
+	while (src[x])
+	{	
+		dest[x] = (char *)malloc((ft_strlen(src[x]) + 1) * sizeof(char));
+		ft_strlcpy(dest[x], src[x], ft_strlen(src[x]) + 1);
+		x++;
+	}
+	dest[x] = NULL;
+}
+
+int	nbr_columns(char **matrix)
+{
+	int	i;
+
+	i = 0;
+	while (matrix[i])
+		i++;
+	return(i);
+}
+
+
