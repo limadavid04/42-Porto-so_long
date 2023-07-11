@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:31:26 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:44:53 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ int	check_map_elements(t_map *map)
 		}
 		x++;
 	}
-	printf("collectibles = %d\n", map->collectibles);
 	if (map->exit != 1 || map->start != 1 || map->collectibles < 1)
 		return (0);
 	return (1);
@@ -71,7 +70,6 @@ void	flood_fill(t_map *map, int i, int j)
 int	check_map_path(t_map *map)
 {
 	t_map	*map_cpy;
-	int i = 0;
 
 	map->collectibles = 0;
 	map->exit = 0;
@@ -83,15 +81,7 @@ int	check_map_path(t_map *map)
 	matrix_copy(map->map_matrix, map_cpy->map_matrix);
 	map_cpy->collectibles = 0;
 	map_cpy->exit = 0;
-	// map_cpy->start = 0;
-	// map_cpy->free_space = 0;
 	flood_fill(map_cpy, map->row, map->col);
-	while (map_cpy->map_matrix[i])
-	{
-		printf("%s\n", map_cpy->map_matrix[i]);
-		i++;
-	}
-	printf("collectibles reached = %d\nexit reached == %d\n ", map_cpy->collectibles, map_cpy->exit);
 	if (map_cpy->collectibles != map->collectibles || map_cpy->exit != 1)
 	{
 		matrix_free(map_cpy->map_matrix);

@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:31:25 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:44:29 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	fill_map_matrix(int n, char **map_matrix, char *file_path)
 	{
 		line = get_next_line(fd);
 		replace_newlines(line);
-		// printf("%s\n", line);
 		if (line == NULL)
 		{
 			free(line);
@@ -76,7 +75,6 @@ int	check_rectangular(char **map_matrix, int rows)
 	m = row_len[0];
 	while (i < rows)
 	{
-		// printf("len = %d\n", row_len[i]);
 		if (row_len[i] != m)
 		{
 			free(row_len);
@@ -105,8 +103,6 @@ int	check_walls(char **map_matrix, int rows)
 		{
 			if ((x == 0 || x == rows - 1 || y == 0 || y == m - 1))
 			{
-				// printf("%c\n", map_matrix[x][y]);
-				// printf("x = %d, y = %d\n ", x, y);
 				if (map_matrix[x][y] != '1')
 					return (0);
 			}
@@ -121,15 +117,14 @@ int	main(int argc, char *argv[])
 {
 	int		n;
 	char	**map_matrix;
+	t_map	*map;
 
 	(void)argc;
 	n = get_nr_rows(argv[1]);
-	// printf("nbr rows = %d\n", n);
 	map_matrix = (char **)ft_calloc(n + 1, sizeof(char *));
 	fill_map_matrix(n, map_matrix, argv[1]);
 	map_matrix[n] = NULL;
-
-	t_map *map = (t_map*)malloc(sizeof(t_map));
+	map = (t_map *)malloc(sizeof(t_map));
 	map->map_matrix = map_matrix;
 	if (!(n >= 3 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
 	{

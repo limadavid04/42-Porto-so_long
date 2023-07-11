@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:31:22 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:45:08 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,4 @@ void	matrix_free(char **matrix);
 int		check_map_elements(t_map *map);
 void	matrix_copy(char **src, char **dest);
 int		nbr_rows(char **matrix);
-
-
-
 #endif
