@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 12:48:36 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:31:25 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	check_rectangular(char **map_matrix, int rows)
 		i++;
 	}
 	free(row_len);
-	if (rows == m || m < 5)
+	if (rows == m || m < 3)
 		return (0);
 	return (1);
 }
@@ -131,7 +131,7 @@ int	main(int argc, char *argv[])
 
 	t_map *map = (t_map*)malloc(sizeof(t_map));
 	map->map_matrix = map_matrix;
-	if (!(n >= 5 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
+	if (!(n >= 3 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
 	{
 		matrix_free(map_matrix);
 		free(map);

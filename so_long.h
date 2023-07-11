@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 12:30:40 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:31:22 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,6 @@ typedef struct Map_info
 	int		collectibles;
 	int		exit;
 	int		start;
-	int		free_space;
 	int		row;
 	int		col;
 }	t_map;

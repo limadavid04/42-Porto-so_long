@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:01:36 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 13:31:26 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,14 @@ int	check_map_elements(t_map *map)
 			}
 			else if (map->map_matrix[x][y] == 'C')
 				map->collectibles++;
-			else if (map->map_matrix[x][y] == '0')
-				map->free_space++;
-			else if (!(map->map_matrix[x][y] == '1'))
+			else if (!(map->map_matrix[x][y] == '1' || map->map_matrix[x][y] == '0'))
 				return (0);
 			y++;
 		}
 		x++;
 	}
 	printf("collectibles = %d\n", map->collectibles);
-	if (map->exit != 1 || map->start != 1 || map->collectibles < 1 || map->free_space == 0)
+	if (map->exit != 1 || map->start != 1 || map->collectibles < 1)
 		return (0);
 	return (1);
 }
@@ -78,7 +76,6 @@ int	check_map_path(t_map *map)
 	map->collectibles = 0;
 	map->exit = 0;
 	map->start = 0;
-	map->free_space = 0;
 	if (!(check_map_elements(map)))
 		return (0);
 	map_cpy = (t_map *)malloc(sizeof(t_map));
