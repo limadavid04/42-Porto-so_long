@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:54:51 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/10 18:57:38 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 12:28:54 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	matrix_copy(char **src, char **dest)
 
 	x = 0;
 	while (src[x])
-	{	
+	{
 		dest[x] = (char *)malloc((ft_strlen(src[x]) + 1) * sizeof(char));
 		ft_strlcpy(dest[x], src[x], ft_strlen(src[x]) + 1);
 		x++;
@@ -52,14 +52,14 @@ void	matrix_copy(char **src, char **dest)
 	dest[x] = NULL;
 }
 
-int	nbr_columns(char **matrix)
+int	nbr_rows(char **matrix)
 {
 	int	i;
 
 	i = 0;
 	while (matrix[i])
 		i++;
-	return(i);
+	return (i);
 }
 
 

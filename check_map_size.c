@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/10 17:17:18 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/11 12:48:36 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,8 @@ int	main(int argc, char *argv[])
 	map_matrix = (char **)ft_calloc(n + 1, sizeof(char *));
 	fill_map_matrix(n, map_matrix, argv[1]);
 	map_matrix[n] = NULL;
-	
-	map_info *map = (map_info*)malloc(sizeof(map_info));
+
+	t_map *map = (t_map*)malloc(sizeof(t_map));
 	map->map_matrix = map_matrix;
 	if (!(n >= 5 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
 	{
@@ -138,7 +138,6 @@ int	main(int argc, char *argv[])
 		printf("ERROR\n");
 		return (0);
 	}
-	
 	printf("GOOD MAP");
 	matrix_free(map_matrix);
 	free(map);
