@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_size.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:44:29 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/12 12:14:42 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	}
 	printf("GOOD MAP");
+	game_main(map);
 	matrix_free(map_matrix);
 	free(map);
 	return (0);

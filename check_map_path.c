@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_path.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 13:44:53 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/12 12:04:47 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ int	check_map_path(t_map *map)
 	}
 	matrix_free(map_cpy->map_matrix);
 	free(map_cpy);
+	
 	return (1);
 }
 
