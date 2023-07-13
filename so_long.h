@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 15:31:07 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 15:59:30 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ int		event_handler(int keycode, t_game *game);
 void	close_game(t_game *game);
 int		check_map_conditions(t_map *map);
 void	throw_error(char *str);
-
-
+void    collect_coin(t_game *game, int i, int j);
+void    floor_move(t_game *game, int i, int j);
+void    pass_over_exit(t_game *game, int i, int j);
+void    edit_map(t_game *game, int i, int j);
 
 #endif
