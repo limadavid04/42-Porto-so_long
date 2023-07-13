@@ -1,2 +1,3 @@
 -replace pritf with ft_printf
--rename struct to map and map to map_matrix
+-fix norm
+-add static to functions (when calling functions the main needs to be on top of the calling function)

@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/12 12:04:47 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/12 20:08:05 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,6 @@ int	check_map_path(t_map *map)
 	}
 	matrix_free(map_cpy->map_matrix);
 	free(map_cpy);
-	
 	return (1);
 }
 

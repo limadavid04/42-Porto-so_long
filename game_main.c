@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:06:23 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/12 17:22:38 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/12 20:19:16 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	xpm_img(t_game *game)
 	game->player = mlx_xpm_file_to_image(game->mlx, "textures/player.xpm", &size, &size);
 	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm", &size, &size);
 }
-
 
 void	get_img(char element, t_game *game, int	x, int y)
 {
@@ -47,7 +46,6 @@ void	put_img_to_Window(t_game *game)
 		y = 0;
 		while (game->map->map_matrix[x][y])
 		{
-			printf("x = %d\ny = %d\n", x , y);
 			get_img(game->map->map_matrix[x][y], game, x, y);
 			y++;
 		}
@@ -59,7 +57,7 @@ void game_main(t_map *map)
 	t_game	*game;
 	
 	game = (t_game *)malloc(sizeof(t_game));
-	game->map = (t_map*)malloc(sizeof(t_map));
+	//game->map = (t_map*)malloc(sizeof(t_map));
 	game->map = map;
 	game->nbr_rows = nbr_rows(map->map_matrix);
 	printf("nbr rows = %d\n", game->nbr_rows);
@@ -69,5 +67,7 @@ void game_main(t_map *map)
 	game->mlx_win = mlx_new_window(game->mlx, game->nbr_cols * 64, game->nbr_rows * 64, "Hello world!");
 	xpm_img(game);
 	put_img_to_Window(game);
+	mlx_key_hook(game->mlx_win, &event_handler, &game);
 	mlx_loop(game->mlx);
+	close_game(game);
 }

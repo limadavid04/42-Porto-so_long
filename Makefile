@@ -1,9 +1,9 @@
 # # -*- Makefile -*-                                                            
 CC = cc
-CFLAGS =-Wall -Wextra -Werror
+CFLAGS =-Wall -Wextra -Werror -g #-fsanitize=address
 LIBFT = ./libft/libft.a
 NAME = so_long
-FILES = check_map_size check_map_path utils game_main
+FILES = check_map_size check_map_path utils game_main event_handler
 MLXFLAGS = -L ./mlx -lmlx -Ilmlx -lXext -lX11
 all: $(NAME)
 
