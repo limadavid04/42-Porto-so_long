@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:06:23 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 11:12:55 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 15:31:20 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,18 +56,14 @@ void game_main(t_map *map)
 	t_game	*game;
 	
 	game = (t_game *)malloc(sizeof(t_game));
-	//game->map = (t_map*)malloc(sizeof(t_map));
 	game->map = map;
 	game->nbr_rows = nbr_rows(map->map_matrix);
-	printf("nbr rows = %d\n", game->nbr_rows);
 	game->nbr_cols = ft_strlen(map->map_matrix[0]);
-	printf("nbr cols = %d\n", game->nbr_cols);
+	game->collected = 0;
 	game->mlx = mlx_init();
 	game->mlx_win = mlx_new_window(game->mlx, game->nbr_cols * 64, game->nbr_rows * 64, "Hello world!");
 	xpm_img(game);
 	put_img_to_Window(game);
-	mlx_key_hook(game->mlx_win, &event_handler, &game);
-	write(1, "ola", 3);
+	mlx_key_hook(game->mlx_win, &event_handler, game);
 	mlx_loop(game->mlx);
-	close_game(game);
 }

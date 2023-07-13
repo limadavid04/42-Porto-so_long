@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_path.c                                   :+:      :+:    :+:   */
+/*   check_map_conditions_utils.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 12:11:01 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 15:25:46 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,8 @@ int	check_map_elements(t_map *map)
 				map->exit++;
 			else if (map->map_matrix[x][y] == 'P')
 			{
-				map->row = x;
-				map->col = y;
+				map->p_row = x;
+				map->p_col = y;
 				map->start++;
 			}
 			else if (map->map_matrix[x][y] == 'C')
@@ -76,7 +76,7 @@ int	check_map_path(t_map *map)
 	matrix_copy(map->map_matrix, map_cpy->map_matrix);
 	map_cpy->collectibles = 0;
 	map_cpy->exit = 0;
-	flood_fill(map_cpy, map->row, map->col);
+	flood_fill(map_cpy, map->p_row, map->p_col);
 	if (map_cpy->collectibles != map->collectibles || map_cpy->exit != 1)
 	{
 		matrix_free(map_cpy->map_matrix);

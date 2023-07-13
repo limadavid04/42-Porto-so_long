@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 11:59:13 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 15:31:07 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ typedef struct Map_info
 	int		collectibles;
 	int		exit;
 	int		start;
-	int		row;
-	int		col;
+	int		p_row;
+	int		p_col;
 }	t_map;
 
 typedef struct Game_info
@@ -56,7 +56,7 @@ typedef struct Game_info
 	void	*exit;
 	void	*mlx;
 	void	*mlx_win;
-
+	int		collected;
 }	t_game;
 
 void	replace_newlines(char *line);

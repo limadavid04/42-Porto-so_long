@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:16:05 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 12:48:30 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 14:56:29 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,6 @@ int main(int argc, char *argv[])
     fetch_map(argv[1], map);
     if (!(check_map_conditions(map)))
         return (0);
-    // game_main(map);
-    matrix_free(map->map_matrix);
-	free(map);
+    game_main(map);
     return(0);
 }
