@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map_size.c                                   :+:      :+:    :+:   */
+/*   check_map_conditions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/12 20:10:48 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 12:21:13 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,29 +113,30 @@ int	check_walls(char **map_matrix, int rows)
 	return (1);
 }
 
-int	main(int argc, char *argv[])
+int	check_map_conditions(t_map *map)
 {
 	int		n;
-	char	**map_matrix;
-	t_map	*map;
 
-	(void)argc;
-	n = get_nr_rows(argv[1]);
-	map_matrix = (char **)ft_calloc(n + 1, sizeof(char *));
-	fill_map_matrix(n, map_matrix, argv[1]);
-	map_matrix[n] = NULL;
-	map = (t_map *)malloc(sizeof(t_map));
-	map->map_matrix = map_matrix;
-	if (!(n >= 3 && check_rectangular(map_matrix, n) && check_walls(map_matrix, n) && check_map_path(map)))
+	map->collectibles = 0;
+	map->exit = 0;
+	map->start = 0;
+	n = nbr_rows(map->map_matrix);
+	if (n < 3)
+		throw_error("The map is not long enough");
+	else if (!(check_rectangular(map->map_matrix, n)))
+		throw_error("The map is not rectangular");
+	else if (!(check_walls(map->map_matrix, n)))
+		throw_error("The map is not sorrounded by walls");
+	else if (!(check_map_elements(map)))
+		throw_error("The elements contained in the map are invalid");
+	else if (!(check_map_path(map)))
+		throw_error("The map does not have a valid path");
+	else
 	{
-		matrix_free(map_matrix);
-		free(map);
-		printf("ERROR\n");
-		return (0);
+		printf("GOOD MAP");
+		return (1);
 	}
-	printf("GOOD MAP");
-	game_main(map);
-	matrix_free(map_matrix);
+	matrix_free(map->map_matrix);
 	free(map);
-	return (0);
+	return(0);
 }

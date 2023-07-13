@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:06:23 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/12 20:19:16 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:12:55 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,6 @@ void	put_img_to_Window(t_game *game)
 {
 	int	x;
 	int	y;
-
 	x = 0;
 	while (game->map->map_matrix[x])
 	{
@@ -68,6 +67,7 @@ void game_main(t_map *map)
 	xpm_img(game);
 	put_img_to_Window(game);
 	mlx_key_hook(game->mlx_win, &event_handler, &game);
+	write(1, "ola", 3);
 	mlx_loop(game->mlx);
 	close_game(game);
 }

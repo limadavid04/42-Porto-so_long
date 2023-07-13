@@ -3,7 +3,7 @@ CC = cc
 CFLAGS =-Wall -Wextra -Werror -g #-fsanitize=address
 LIBFT = ./libft/libft.a
 NAME = so_long
-FILES = check_map_size check_map_path utils game_main event_handler
+FILES = check_map_conditions check_map_conditions_utils utils game_main event_handler main
 MLXFLAGS = -L ./mlx -lmlx -Ilmlx -lXext -lX11
 all: $(NAME)
 

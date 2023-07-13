@@ -6,7 +6,7 @@
 /*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/12 19:56:57 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:59:13 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,15 @@ void	matrix_free(char **matrix);
 int		check_map_elements(t_map *map);
 void	matrix_copy(char **src, char **dest);
 int		nbr_rows(char **matrix);
+int		get_nr_rows(char *file_path);
+void	fill_map_matrix(int n, char **map_matrix, char *file_path);
 void	game_main(t_map *map);
 void	xpm_img(t_game *game);
 int		event_handler(int keycode, t_game *game);
 void	close_game(t_game *game);
+int		check_map_conditions(t_map *map);
+void	throw_error(char *str);
+
+
 
 #endif

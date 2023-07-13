@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
+/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:54:51 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/11 12:28:54 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/13 11:22:44 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,9 @@ int	nbr_rows(char **matrix)
 	return (i);
 }
 
+void	throw_error(char *str)
+{
+	printf("ERROR\n");
+	printf("%s", str);
+}
 
