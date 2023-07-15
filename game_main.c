@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:06:23 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 15:31:20 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/15 20:57:17 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	xpm_img(t_game *game)
 {
-	int	size = 64;
+	int	size;
+
+	size = 64;
 	game->wall = mlx_xpm_file_to_image(game->mlx, "textures/wall.xpm", &size, &size);
 	game->tiles = mlx_xpm_file_to_image(game->mlx, "textures/tiles.xpm", &size, &size);
 	game->coins = mlx_xpm_file_to_image(game->mlx, "textures/coins.xpm", &size, &size);
@@ -22,9 +24,9 @@ void	xpm_img(t_game *game)
 	game->exit = mlx_xpm_file_to_image(game->mlx, "textures/exit.xpm", &size, &size);
 }
 
-void	get_img(char element, t_game *game, int	x, int y)
+void	get_img(char element, t_game *game, int x, int y)
 {
-	if(element == '1')
+	if (element == '1')
 		mlx_put_image_to_window(game->mlx ,game->mlx_win, game->wall, y * 64, x * 64);
 	else if (element == '0')
 		mlx_put_image_to_window(game->mlx ,game->mlx_win, game->tiles, y * 64, x * 64);
@@ -39,6 +41,7 @@ void	put_img_to_Window(t_game *game)
 {
 	int	x;
 	int	y;
+
 	x = 0;
 	while (game->map->map_matrix[x])
 	{
@@ -51,10 +54,10 @@ void	put_img_to_Window(t_game *game)
 		x++;
 	}
 }
-void game_main(t_map *map)
+void	game_main(t_map *map)
 {
 	t_game	*game;
-	
+
 	game = (t_game *)malloc(sizeof(t_game));
 	game->map = map;
 	game->nbr_rows = nbr_rows(map->map_matrix);

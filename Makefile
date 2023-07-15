@@ -1,4 +1,4 @@
-# # -*- Makefile -*-                                                            
+# # -*- Makefile -*-
 CC = cc
 CFLAGS =-Wall -Wextra -Werror -g #-fsanitize=address
 LIBFT = ./libft/libft.a
