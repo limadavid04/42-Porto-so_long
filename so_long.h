@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 13:42:11 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:28:36 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # endif
 # ifndef D
 #  define D 100
+# endif
+# ifndef DESTROY
+#  define DESTROY 17
 # endif
 
 typedef struct Map_info
@@ -75,7 +78,7 @@ void	game_main(t_map *map);
 void	xpm_img(t_game *game);
 void	get_img(char element, t_game *game, int x, int y);
 int		event_handler(int keycode, t_game *game);
-void	close_game(t_game *game);
+int		close_game(t_game *game);
 int		check_map_conditions(t_map *map);
 void	throw_error(char *str);
 void	edit_map(t_game *game, int i, int j);

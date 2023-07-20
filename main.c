@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:16:05 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 13:48:11 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:52:02 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	check_file_extension(char *file)
 		len--;
 		i--;
 	}
-
 	if (ft_strncmp(extension, ".ber", 4))
 	{
 		throw_error("Invalid file extension");
@@ -85,3 +84,6 @@ int	main(int argc, char *argv[])
 	game_main(map);
 	return (0);
 }
+//replace printf with ft_printf
+//display moves on the screen
+//add mouse event to close window

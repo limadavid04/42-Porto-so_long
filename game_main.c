@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/11 15:06:23 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 13:52:59 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:52:34 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	xpm_img(t_game *game)
 	"textures/closed_door.xpm", &size, &size);
 	game->exit_overlay = mlx_xpm_file_to_image(game->mlx, \
 	"textures/closed_door-overlay.xpm", &size, &size);
-
 }
 
 void	get_img(char element, t_game *game, int x, int y)
@@ -85,5 +84,7 @@ void	game_main(t_map *map)
 	xpm_img(game);
 	put_img_to_window(game);
 	mlx_key_hook(game->mlx_win, &event_handler, game);
+	mlx_hook(game->mlx_win, DESTROY, (1L << 17), \
+		&close_game, game);
 	mlx_loop(game->mlx);
 }

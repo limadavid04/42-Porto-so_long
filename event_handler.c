@@ -6,13 +6,13 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:15:20 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 13:46:48 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:30:15 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	close_game(t_game *game)
+int	close_game(t_game *game)
 {
 	mlx_destroy_image(game->mlx, game->wall);
 	mlx_destroy_image(game->mlx, game->tiles);
@@ -59,7 +59,6 @@ void	move(t_game *game, int i, int j)
 
 int	event_handler(int keycode, t_game *game)
 {
-	// printf("key = %d\n", keycode);
 	if (keycode == ESC)
 		close_game(game);
 	else if (keycode == W)
@@ -80,15 +79,3 @@ void	edit_map(t_game *game, int i, int j)
 	game->map->p_row = i;
 	game->map->p_col = j;
 }
-// edit map needs to edit the map with the new player position
-// registered in map->p_row and map->p_col and also edits the map;
-
-//the functions in render replace the images on the respective tiles
-//where the player moved
-
-//finally the event handle function still needs to handle movemenst in the other
-//directions
-
-//every movement function, move_up, move_down, etc edits the next
-//position of the player by editing i and j and sends it to
-//movement possible to update the window accordingly

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_conditions.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 15:25:50 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:39:36 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,10 @@ int	check_rectangular(char **map_matrix, int rows)
 	int	*row_len;
 
 	m = 0;
-	i = 0;
+	i = -1;
 	row_len = ft_calloc(rows, sizeof(int));
-	while (map_matrix[i])
-	{
+	while (map_matrix[++i])
 		row_len[i] = ft_strlen(map_matrix[i]);
-		i++;
-	}
 	i = 0;
 	m = row_len[0];
 	while (i < rows)
@@ -138,5 +135,5 @@ int	check_map_conditions(t_map *map)
 	}
 	matrix_free(map->map_matrix);
 	free(map);
-	return(0);
+	return (0);
 }

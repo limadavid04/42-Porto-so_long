@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_map_conditions_utils.c                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 16:22:24 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/13 15:25:46 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 21:51:38 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,22 @@ int	check_map_elements(t_map *map)
 	int	x;
 	int	y;
 
-	x = 0;
-	while (map->map_matrix[x])
+	x = -1;
+	while (map->map_matrix[++x])
 	{
-		y = 0;
-		while (map->map_matrix[x][y])
+		y = -1;
+		while (map->map_matrix[x][++y])
 		{
 			if (map->map_matrix[x][y] == 'E')
 				map->exit++;
 			else if (map->map_matrix[x][y] == 'P')
-			{
-				map->p_row = x;
-				map->p_col = y;
 				map->start++;
-			}
 			else if (map->map_matrix[x][y] == 'C')
 				map->collectibles++;
-			else if (!(map->map_matrix[x][y] == '1' || map->map_matrix[x][y] == '0'))
+			else if (!(map->map_matrix[x][y] == '1' || \
+			map->map_matrix[x][y] == '0'))
 				return (0);
-			y++;
 		}
-		x++;
 	}
 	if (map->exit != 1 || map->start != 1 || map->collectibles < 1)
 		return (0);
@@ -67,15 +62,38 @@ void	flood_fill(t_map *map, int i, int j)
 	return ;
 }
 
+static void	get_starting_position(t_map *map)
+{
+	int	x;
+	int	y;
+
+	x = -1;
+	while (map->map_matrix[++x])
+	{
+		y = -1;
+		while (map->map_matrix[x][++y])
+		{
+			if (map->map_matrix[x][y] == 'P')
+			{
+				map->p_row = x;
+				map->p_col = y;
+				return ;
+			}
+		}
+	}
+}
+
 int	check_map_path(t_map *map)
 {
 	t_map	*map_cpy;
 
 	map_cpy = (t_map *)malloc(sizeof(t_map));
-	map_cpy->map_matrix = (char **)malloc((nbr_rows(map->map_matrix) + 1) * sizeof(char *));
+	map_cpy->map_matrix = (char **)malloc((nbr_rows(map->map_matrix) + 1) \
+	* sizeof(char *));
 	matrix_copy(map->map_matrix, map_cpy->map_matrix);
 	map_cpy->collectibles = 0;
 	map_cpy->exit = 0;
+	get_starting_position(map);
 	flood_fill(map_cpy, map->p_row, map->p_col);
 	if (map_cpy->collectibles != map->collectibles || map_cpy->exit != 1)
 	{
@@ -87,4 +105,3 @@ int	check_map_path(t_map *map)
 	free(map_cpy);
 	return (1);
 }
-
