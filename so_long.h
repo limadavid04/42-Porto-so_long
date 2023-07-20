@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/15 20:44:27 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 13:42:11 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,20 @@
 
 # ifndef ESC
 #  define ESC 65307
-#endif
+# endif
 # ifndef W
 #  define W 119
-#endif
+# endif
 # ifndef A
 #  define A 97
-#endif
+# endif
 # ifndef S
 #  define S 115
-#endif
+# endif
 # ifndef D
 #  define D 100
-#endif
+# endif
+
 typedef struct Map_info
 {
 	char	**map_matrix;
@@ -54,6 +55,9 @@ typedef struct Game_info
 	void	*coins;
 	void	*player;
 	void	*exit;
+	int		nbr_moves;
+	// void	*exit_open;
+	void	*exit_overlay;
 	void	*mlx;
 	void	*mlx_win;
 	int		collected;

@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:15:20 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/15 20:52:43 by dlima            ###   ########.fr       */
+/*   Updated: 2023/07/20 13:46:48 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	close_game(t_game *game)
 	mlx_destroy_image(game->mlx, game->coins);
 	mlx_destroy_image(game->mlx, game->player);
 	mlx_destroy_image(game->mlx, game->exit);
+	mlx_destroy_image(game->mlx, game->exit_overlay);
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
@@ -35,7 +36,9 @@ void	move(t_game *game, int i, int j)
 	matrix = game->map->map_matrix;
 	if (matrix[i][j] == '1')
 		return ;
-	else if (matrix[i][j] == 'C')
+	game->nbr_moves++;
+	printf("move = %d\n", game->nbr_moves);
+	if (matrix[i][j] == 'C')
 	{
 		game->collected++;
 		replace_tile(game, i, j);
@@ -49,14 +52,14 @@ void	move(t_game *game, int i, int j)
 			printf("YOU WIN!!");
 			close_game(game);
 		}
-		get_img('0', game, game->map->p_row, game->map->p_col);
+		replace_tile(game, i, j);
 	}
 	edit_map(game, i, j);
 }
 
 int	event_handler(int keycode, t_game *game)
 {
-	printf("key = %d\n", keycode);
+	// printf("key = %d\n", keycode);
 	if (keycode == ESC)
 		close_game(game);
 	else if (keycode == W)
