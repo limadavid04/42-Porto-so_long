@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/05 16:11:45 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 21:39:36 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/27 16:00:20 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ int	check_map_conditions(t_map *map)
 		throw_error("The map does not have a valid path");
 	else
 	{
-		printf("GOOD MAP");
+		ft_printf("GOOD MAP");
 		return (1);
 	}
 	matrix_free(map->map_matrix);

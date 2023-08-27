@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dlima <dlima@student.42.fr>                +#+  +:+       +#+        */
+/*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:31:02 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/06 15:38:06 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/27 15:21:16 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
-# include "./get_next_line/get_next_line.h"
+# include "./42-Porto-get_next_line/get_next_line.h"
+# include "./ft_printf/ft_printf.h"
 
 typedef struct s_list
 {

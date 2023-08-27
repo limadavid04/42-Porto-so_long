@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/12 18:15:20 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 21:30:15 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/27 16:00:17 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	move(t_game *game, int i, int j)
 	if (matrix[i][j] == '1')
 		return ;
 	game->nbr_moves++;
-	printf("move = %d\n", game->nbr_moves);
+	ft_printf("move = %d\n", game->nbr_moves);
 	if (matrix[i][j] == 'C')
 	{
 		game->collected++;
@@ -49,7 +49,7 @@ void	move(t_game *game, int i, int j)
 	{
 		if (game->collected == game->map->collectibles)
 		{
-			printf("YOU WIN!!");
+			ft_printf("YOU WIN!!");
 			close_game(game);
 		}
 		replace_tile(game, i, j);

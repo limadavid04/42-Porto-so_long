@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/13 11:16:05 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 21:52:02 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/27 17:51:58 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,10 @@ int	main(int argc, char *argv[])
 	t_map	*map;
 
 	if (argc != 2)
+	{
 		throw_error("Invalid number of arguments");
+		return (0);
+	}
 	if (!(check_file_path(argv[1])))
 		return (0);
 	map = (t_map *)malloc(sizeof(t_map));
