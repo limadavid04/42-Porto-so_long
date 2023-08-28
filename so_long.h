@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/07 15:13:10 by dlima             #+#    #+#             */
-/*   Updated: 2023/07/20 21:28:36 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/28 12:49:59 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ typedef struct Game_info
 	void	*player;
 	void	*exit;
 	int		nbr_moves;
-	// void	*exit_open;
 	void	*exit_overlay;
 	void	*mlx;
 	void	*mlx_win;

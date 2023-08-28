@@ -6,7 +6,7 @@
 /*   By: dlima <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/20 16:56:13 by dlima             #+#    #+#             */
-/*   Updated: 2023/08/28 12:39:25 by dlima            ###   ########.fr       */
+/*   Updated: 2023/08/28 12:48:49 by dlima            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	ft_putchar_fdd(char c, int fd)
 {
 	write(fd, &c, 1);
 }
-
 
 void	ft_putnbr_fdd(int n, int fd)
 {
